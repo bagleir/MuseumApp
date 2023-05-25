@@ -1,0 +1,83 @@
+/* Set Background Color */
+.root {
+    -fx-background-color: #222222;
+}
+
+/* Button Styles */
+.button {
+    -fx-background-color: #FF0000; /* Button color (red) */
+    -fx-text-fill: black;
+    -fx-font-size: 14px;
+    -fx-padding: 8px 16px;
+}
+
+.button:hover {
+    -fx-background-color: #FF3333; /* Lighter shade on hover */
+}
+
+.button:pressed {
+    -fx-background-color: #CC0000; /* Darker shade when pressed */
+}
+
+/* ScrollPane Styles */
+.scroll-pane .viewport {
+    -fx-background-color: #222222; /* Same as background */
+}
+
+/* SearchBar Styles */
+.text-field.search-bar {
+    -fx-prompt-text-fill: #999999;
+    -fx-background-color: #FF0000; /* Button color (red) */
+    -fx-background-radius: 20px;
+    -fx-padding: 4px 10px;
+    -fx-font-size: 14px;
+    -fx-text-inner-color: white; /* Text color inside the search bar */
+}
+
+/* Picture Styles */
+.image-view {
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.3), 10, 0, 0, 0);
+}
+
+/* TextField Styles */
+.text-field {
+    -fx-background-color: #FF6666; /* Lighter shade of red */
+    -fx-background-radius: 4px;
+    -fx-border-color: #555555;
+    -fx-border-radius: 4px;
+    -fx-padding: 4px 8px;
+    -fx-font-size: 14px;
+    -fx-text-fill: black; /* Text color (red) */
+}
+
+/* ComboBox Styles */
+.combo-box {
+    -fx-background-color: #2c2c2c;
+    -fx-background-radius: 4px;
+    -fx-border-color: #555555;
+    -fx-border-radius: 4px;
+    -fx-padding: 4px 8px;
+    -fx-font-size: 14px;
+}
+
+.combo-box .list-cell {
+    -fx-text-fill: red; /* Text color (red) */
+}
+
+/* Customize the arrow button of the ComboBox */
+.combo-box .arrow-button {
+    -fx-background-color: transparent;
+}
+
+.combo-box .arrow-button .arrow {
+    -fx-background-color: #555555;
+}
+
+.combo-box .arrow-button:hover .arrow {
+    -fx-background-color: #777777;
+}
+
+.combo-box .arrow-button:pressed .arrow {
+    -fx-background-color: #444444;
+}
+
