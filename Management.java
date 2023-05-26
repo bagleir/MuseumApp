@@ -26,9 +26,9 @@ import java.net.MalformedURLException;
 
 public class Management {
 
-
     private static final String Url = "jdbc:mysql://localhost:3306/Museum";
 
+    // Find the next available ID in the User table
     public static int FindID() {
         boolean test = false;
         int i =1;
@@ -54,6 +54,7 @@ public class Management {
         return i-1;
     }
 
+    // Find the next available Code in the Museum table
     public static int FindCode() {
         boolean test = false;
         int i =1;
@@ -73,6 +74,7 @@ public class Management {
         return i-1;
     }
 
+    // Find the next available Identifier in the Art table
     public static int FindIdentifier() {
         boolean test = false;
         int i =1;
@@ -92,6 +94,7 @@ public class Management {
         return i-1;
     }
 
+    // Add a User to the User table
     public static void AddUser(User user) {
         try (Connection connection = getConnection()) {
             String query = "INSERT INTO User (ID, Name, Password, Email) VALUES (?, ?, ?, ?)";

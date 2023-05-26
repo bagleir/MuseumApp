@@ -7,12 +7,12 @@ import javafx.geometry.Pos;
 import javafx.stage.Stage;
 import javafx.scene.control.ComboBox;
 
-public class CreateAccountM{
+public class CreateAccountM {
     public static void show() {
         Stage stage = new Stage();
         stage.setTitle("Account");
 
-        // Create text fields and buttons
+        // Create text fields, combobox, buttons
         TextField textFieldN = new TextField("Enter Name");
         TextField textFieldE = new TextField("Enter Email");
         TextField textFieldP1 = new TextField("Enter Password");
@@ -24,9 +24,11 @@ public class CreateAccountM{
 
         // Action to be performed when the "Validate" button is clicked
         actionButton.setOnAction(event -> {
-            if(Data.Is_ValidM(textFieldN.getText(),textFieldP1.getText(),textFieldP2.getText(),textFieldE.getText(),comboBox.getValue())){
+            if (Data.Is_ValidM(textFieldN.getText(), textFieldP1.getText(), textFieldP2.getText(),
+                    textFieldE.getText(), comboBox.getValue())) {
                 Museum m = Management.getRowMuseum(comboBox.getValue());
-                Data.currentUserM = new UserM(Management.FindID(),textFieldN.getText(),textFieldP1.getText(),textFieldE.getText(),m);
+                Data.currentUserM = new UserM(Management.FindID(), textFieldN.getText(), textFieldP1.getText(),
+                        textFieldE.getText(), m);
                 Management.AddUserM(Data.currentUserM);
                 MainWindow.isLoggedIn.set(true);
                 stage.close();
@@ -39,7 +41,8 @@ public class CreateAccountM{
         // Create a vertical box layout and add the elements to it
         VBox vbox = new VBox(10);
         vbox.setAlignment(Pos.CENTER);
-        vbox.getChildren().addAll(actionButton,textFieldN,textFieldE,textFieldP1,textFieldP2,comboBox,closeButton);
+        vbox.getChildren().addAll(actionButton, textFieldN, textFieldE, textFieldP1, textFieldP2, comboBox,
+                closeButton);
 
         // Create a scene with the vertical box layout and set it to the stage
         Scene scene = new Scene(vbox, 400, 400);

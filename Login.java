@@ -6,7 +6,13 @@ import javafx.scene.layout.VBox;
 import javafx.geometry.Pos;
 import javafx.stage.Stage;
 
-public class Login{
+/**
+ * A class that represents a login window in a JavaFX application.
+ */
+public class Login {
+    /**
+     * Method to display the login window.
+     */
     public static void show() {
         Stage stage = new Stage();
         stage.setTitle("Login");
@@ -19,13 +25,12 @@ public class Login{
 
         // Action to be performed when the "Validate" button is clicked
         actionButton.setOnAction(event -> {
-            if(Management.ValidUser(textFieldN.getText(),textFieldP.getText())){
-                Data.currentUser = new User(0,textFieldN.getText(),textFieldP.getText(),"");
+            if (Management.ValidUser(textFieldN.getText(), textFieldP.getText())) {
+                Data.currentUser = new User(0, textFieldN.getText(), textFieldP.getText(), "");
                 MainWindow.isLoggedIn.set(true);
                 stage.close();
-            }
-            else if(Management.ValidUserM(textFieldN.getText(),textFieldP.getText())){
-                Data.currentUserM = new UserM(0,textFieldN.getText(),textFieldP.getText(),"",null);
+            } else if (Management.ValidUserM(textFieldN.getText(), textFieldP.getText())) {
+                Data.currentUserM = new UserM(0, textFieldN.getText(), textFieldP.getText(), "", null);
                 MainWindow.isLoggedIn.set(true);
                 stage.close();
             }
@@ -37,7 +42,7 @@ public class Login{
         // Create a vertical box layout and add the elements to it
         VBox vbox = new VBox(10);
         vbox.setAlignment(Pos.CENTER);
-        vbox.getChildren().addAll(actionButton,textFieldN,textFieldP,closeButton);
+        vbox.getChildren().addAll(actionButton, textFieldN, textFieldP, closeButton);
 
         // Create a scene with the vertical box layout and set it to the stage
         Scene scene = new Scene(vbox, 300, 300);

@@ -6,7 +6,14 @@ import javafx.scene.layout.VBox;
 import javafx.geometry.Pos;
 import javafx.stage.Stage;
 
-public class AddMuseum{
+/**
+ * The `AddMuseum` class provides a method to display a window for adding a museum.
+ * The window contains text fields and buttons to input and validate museum information.
+ */
+public class AddMuseum {
+    /**
+     * Displays the window for adding a museum.
+     */
     public static void show() {
         Stage stage = new Stage();
         stage.setTitle("Add Museum");
@@ -14,7 +21,7 @@ public class AddMuseum{
         // Create text fields and buttons
         TextField textFieldN = new TextField("Enter Name of the Museum");
         TextField textFieldD = new TextField("Enter Description of the museum");
-        TextField textFieldL = new TextField("Enter Link to the webside of the museum");
+        TextField textFieldL = new TextField("Enter Link to the website of the museum");
         TextField textFieldW = new TextField("Enter the location of the museum");
         TextField textFieldE = new TextField("Enter the email to contact the museum");
         Button actionButton = new Button("Validate");
@@ -22,8 +29,8 @@ public class AddMuseum{
 
         // Action to be performed when the "Validate" button is clicked
         actionButton.setOnAction(event -> {
-            if(Data.CanAddMuseum(textFieldN.getText(),textFieldD.getText(),textFieldL.getText(),textFieldW.getText(),textFieldE.getText())){
-                Museum m = new Museum(Management.FindCode(),textFieldN.getText(),textFieldW.getText(),textFieldD.getText(),textFieldE.getText(),textFieldL.getText());
+            if (Data.CanAddMuseum(textFieldN.getText(), textFieldD.getText(), textFieldL.getText(), textFieldW.getText(), textFieldE.getText())) {
+                Museum m = new Museum(Management.FindCode(), textFieldN.getText(), textFieldW.getText(), textFieldD.getText(), textFieldE.getText(), textFieldL.getText());
                 Management.AddMuseum(m);
                 MainWindow.entries.add(textFieldN.getText());
                 stage.close();
@@ -36,7 +43,7 @@ public class AddMuseum{
         // Create a vertical box layout and add the elements to it
         VBox vbox = new VBox(10);
         vbox.setAlignment(Pos.CENTER);
-        vbox.getChildren().addAll(actionButton,textFieldN,textFieldD,textFieldL,textFieldW,textFieldE,closeButton);
+        vbox.getChildren().addAll(actionButton, textFieldN, textFieldD, textFieldL, textFieldW, textFieldE, closeButton);
 
         // Create a scene with the vertical box layout and set it to the stage
         Scene scene = new Scene(vbox, 400, 400);

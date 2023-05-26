@@ -1,3 +1,7 @@
+/**
+ * The `Museum` class represents a museum with its associated information.
+ * It stores details such as the museum's code, name, location, description, email, and website link.
+ */
 public class Museum {
 
     private final int Code;
@@ -7,7 +11,17 @@ public class Museum {
     private final String Email;
     private final String Link;
 
-    public Museum(int code,String name,String location,String description,String email, String link){
+    /**
+     * Constructs a new `Museum` object with the specified code, name, location, description, email, and link.
+     *
+     * @param code        the code of the museum
+     * @param name        the name of the museum
+     * @param location    the location of the museum
+     * @param description the description of the museum
+     * @param email       the email of the museum
+     * @param link        the website link of the museum
+     */
+    public Museum(int code, String name, String location, String description, String email, String link) {
         this.Code = code;
         this.Name = name;
         this.Location = location;
@@ -15,30 +29,58 @@ public class Museum {
         this.Email = email;
         this.Link = link;
     }
-    
-    public String GetName(){
+
+    /**
+     * Retrieves the name of the museum.
+     *
+     * @return the name of the museum
+     */
+    public String GetName() {
         return this.Name;
     }
 
-    public int GetCode(){
+    /**
+     * Retrieves the code of the museum.
+     *
+     * @return the code of the museum
+     */
+    public int GetCode() {
         return this.Code;
     }
 
-    public String GetLocation(){
+    /**
+     * Retrieves the location of the museum.
+     *
+     * @return the location of the museum
+     */
+    public String GetLocation() {
         return this.Location;
     }
 
-    public String GetDescription(){
+    /**
+     * Retrieves the description of the museum.
+     *
+     * @return the description of the museum
+     */
+    public String GetDescription() {
         return this.Description;
     }
-    
-    public String GetEmail(){
+
+    /**
+     * Retrieves the email of the museum.
+     *
+     * @return the email of the museum
+     */
+    public String GetEmail() {
         return this.Email;
     }
 
-    public String GetLink(){
+    /**
+     * Retrieves the website link of the museum.
+     *
+     * @return the website link of the museum
+     */
+    public String GetLink() {
         return this.Link;
     }
-
-
 }

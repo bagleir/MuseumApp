@@ -38,11 +38,14 @@ if ! sudo service mysql status | grep "active (running)" &> /dev/null; then
     sudo service mysql start
 fi
 
-# Create the database
-mysql -u "$DB_USERNAME" -p"$DB_PASSWORD" -e "CREATE DATABASE IF NOT EXISTS $DB_NAME;"
-
-# Import the SQL dump
-mysql -u "$DB_USERNAME" -p"$DB_PASSWORD" "$DB_NAME" < "$DUMP_FILE"
+# Check if the database exists
+if ! mysql -u "$DB_USERNAME" -p"$DB_PASSWORD" -e "USE $DB_NAME;" &> /dev/null; then
+    # Create the database
+    mysql -u "$DB_USERNAME" -p"$DB_PASSWORD" -e "CREATE DATABASE IF NOT EXISTS $DB_NAME;"
+    
+    # Import the SQL dump
+    mysql -u "$DB_USERNAME" -p"$DB_PASSWORD" "$DB_NAME" < "$DUMP_FILE"
+fi
 
 # Compile the project
 javac --module-path "$JAVAFX_LIB_PATH" --add-modules javafx.controls -cp "$MYSQL_CONNECTOR_JAR" *.java

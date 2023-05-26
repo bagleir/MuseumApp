@@ -50,7 +50,7 @@ public class MainWindow extends Application {
         Management.retrieveFilePathsFromDatabase();
         Button button1 = new Button("Login to the application");
         Button button2 = new Button("Create a User account");
-        Button button3 = new Button("Create a proffessional account");
+        Button button3 = new Button("Create a professional account");
         Button closeButton = new Button("Close");
 
         // Create HBox for buttons
@@ -174,7 +174,7 @@ public class MainWindow extends Application {
         Text nameText = new Text(windowTitle);
         nameText.setStyle("-fx-fill: red;-fx-font-size: 19px; -fx-font-weight: bold;");
 
-        Button RepportButton = new Button("Generate a rapport");
+        Button reportButton = new Button("Generate a report");
         Button closeButton = new Button("Close");
         Art a = Management.getRowArt(windowTitle);
 
@@ -186,7 +186,7 @@ public class MainWindow extends Application {
 
 
         // Add text view to display the description of the art
-        Text descriptionText = new Text("Description : "+a.GetDescription()+"\n\n\nThis work of art is currently in the museum : "+a.GetMuseum().GetName() +" \n\nWich is located at : "+a.GetMuseum().GetLocation() + "\n\n\nFeel free to generate a report to have more information like contact Email or link to more data.");
+        Text descriptionText = new Text("Description : "+a.GetDescription()+"\n\n\nThis work of art is currently in the museum : "+a.GetMuseum().GetName() +" \n\nWich is located at : "+a.GetMuseum().GetLocation() + "\n\n\nFeel free to generate a report to have more information like Email or link to more data.");
         descriptionText.setWrappingWidth(400);
         descriptionText.setTextAlignment(TextAlignment.JUSTIFY);
         descriptionText.setStyle("-fx-fill: red;-fx-font-size: 14px");
@@ -195,25 +195,25 @@ public class MainWindow extends Application {
         buttonsBox.setAlignment(Pos.CENTER);
         buttonsBox.setSpacing(10);
 
-        RepportButton.setOnAction(event -> {
+        reportButton.setOnAction(event -> {
             String FilePath = Data.Createfile(a);
             Data.writeArtToFile(a,FilePath);
         });
         if (Data.currentUser == null) {
-            Button AddM = new Button("Add a Museum");
-            AddM.setOnAction(event -> {
+            Button addMuseumButton = new Button("Add a Museum");
+            addMuseumButton.setOnAction(event -> {
                 AddMuseum.show();
             });
-            Button AddA = new Button("Add a work of Art");
-            buttonsBox.getChildren().add(AddA);
-            buttonsBox.getChildren().add(AddM);
-            AddA.setOnAction(event -> {
+            Button addArtButton = new Button("Add a work of Art");
+            buttonsBox.getChildren().add(addArtButton);
+            buttonsBox.getChildren().add(addMuseumButton);
+            addArtButton.setOnAction(event -> {
                 AddArt.show();
             });
         }
         // Add hyperlink to display the link of the art
 
-        vbox.getChildren().addAll(nameText, imageView, descriptionText, RepportButton, buttonsBox,closeButton);
+        vbox.getChildren().addAll(nameText, imageView, descriptionText, reportButton, buttonsBox,closeButton);
         closeButton.setOnAction(event -> {
             primaryStage.show(); // Show the primary stage
             secondaryStage.close();
