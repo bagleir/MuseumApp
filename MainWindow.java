@@ -235,6 +235,8 @@ public class MainWindow extends Application {
 
 
     public static void main(String[] args) {
+        Management.Username = args[0];
+        Management.Password = args[1];
         launch(args);
     }
 }

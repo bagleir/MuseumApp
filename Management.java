@@ -26,9 +26,10 @@ import java.net.MalformedURLException;
 
 public class Management {
 
-    private static final String url = "jdbc:mysql://localhost:3306/MuseumApp";
-    private static final String username = "root";
-    private static final String password = "Doudoulapin1.";
+
+    private static final String Url = "jdbc:mysql://localhost:3306/Museum";
+    private static final String Username = ;
+    private static final String Password = ;
 
     public static int FindID() {
         boolean test = false;
@@ -201,7 +202,7 @@ public class Management {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        return DriverManager.getConnection(url, username, password);
+        return DriverManager.getConnection(Url, Username, Password);
     }
     
     public static boolean ValidUser(String Name, String Password){
