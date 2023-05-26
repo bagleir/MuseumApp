@@ -42,6 +42,7 @@ public class MainWindow extends Application {
     public static final List<String> entries = new ArrayList<>();
     public static FlowPane imagePane = new FlowPane(Orientation.HORIZONTAL, 10, 10);
 
+
     @Override
     public void start(Stage primaryStage) throws FileNotFoundException {
         // Create buttons
@@ -235,8 +236,6 @@ public class MainWindow extends Application {
 
 
     public static void main(String[] args) {
-        Management.Username = args[0];
-        Management.Password = args[1];
         launch(args);
     }
 }

@@ -28,8 +28,6 @@ public class Management {
 
 
     private static final String Url = "jdbc:mysql://localhost:3306/Museum";
-    private static final String Username = ;
-    private static final String Password = ;
 
     public static int FindID() {
         boolean test = false;
@@ -202,7 +200,7 @@ public class Management {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        return DriverManager.getConnection(Url, Username, Password);
+        return DriverManager.getConnection(Url, Main.Username, Main.Password);
     }
     
     public static boolean ValidUser(String Name, String Password){
